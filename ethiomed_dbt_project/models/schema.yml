@@ -1,0 +1,47 @@
+# models/schema.yml
+version: 2
+
+sources:
+  - name: public
+    tables:
+      - name: ethiomed_table
+
+models:
+  - name: stg_ethiomed_table
+    description: "Staging table for raw ethiomed data"
+    columns:
+      - name: channel
+        description: "Channel name"
+      - name: messageid
+        description: "Message ID"
+        tests:
+          - unique
+          - not_null
+      - name: date
+        description: "Message date"
+      - name: senderid
+        description: "ID of the sender"
+      - name: messagecontent
+        description: "Content of the message"
+      - name: views
+        description: "Number of views"
+      - name: comments
+        description: "Number of comments"
+      - name: reactions
+        description: "Number of reactions"
+
+  - name: transform_ethiomed_table
+    description: "Transformed ethiomed data aggregated by channel"
+    columns:
+      - name: channel
+        description: "Channel name"
+        tests:
+          - not_null
+      - name: message_count
+        description: "Count of messages per channel"
+      - name: total_views
+        description: "Total views per channel"
+      - name: total_comments
+        description: "Total comments per channel"
+      - name: total_reactions
+        description: "Total reactions per channel"
