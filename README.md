@@ -14,16 +14,16 @@ Welcome to the Ethiopian Medical Business Data Warehouse project! This repositor
 ## Project Overview
 
 This project involves several key components to ensure the data warehouse is effective and efficient:
-- **Data Scraping and Collection**: Extract data from web sources and Telegram channels.
+- **Data Scraping and Collection**: Extract data from Telegram channels.
 - **Data Cleaning and Transformation**: Clean and transform the collected data to ensure consistency and usability.
 - **Object Detection using YOLO**: Integrate object detection capabilities to enhance data analysis.
 - **Data Warehouse Design and Implementation**: Develop a scalable data warehouse architecture.
 - **Data Integration and Enrichment**: Integrate and enrich data for comprehensive analysis and reporting.
 
-## Features
+## Features YOLO model to detect objects in the images
 
 1. **Data Scraping and Collection Pipeline**
-   - Collect data from various web sources and Telegram channels.
+   - Collect data from various Telegram channels.
    - Use automated scripts to continuously update the data.
 
 2. **Data Cleaning and Transformation Pipeline**
@@ -66,7 +66,6 @@ The high-level architecture of the project includes the following components:
 
 - Python 3.8+
 - PostgreSQL or any preferred database for the data warehouse
-- Docker (optional, for containerized deployment)
 - Virtual Environment (venv)
 
 ### Installation Steps
@@ -89,36 +88,28 @@ The high-level architecture of the project includes the following components:
    ```
 
 4. **Configure Database**
-   - Set up your PostgreSQL database and update the database configuration in `config.py`.
-
-5. **Run ETL/ELT Pipelines**
-   ```bash
-   python3 run_etl.py
-   ```
+   - Set up your PostgreSQL database.
 
 6. **Run Object Detection**
    ```bash
-   python3 run_yolo.py
+   python3 -m scripts.run_yolo
    ```
 
 ## Usage
 
 ### Data Scraping
-- To start data scraping, run the `scrape_data.py` script.
+- To start data scraping, run the `telegram_message_scraper.py` script.
   ```bash
-  python3 scrape_data.py
+  python3 scripts/telegram_message_scraper.py
   ```
-
-### Data Transformation
-- To transform the scraped data, run the `transform_data.py` script.
-  ```bash
-  python3 transform_data.py
-  ```
-
+- For image scraping, run the `telegram_image_scraper.py`
+	```bash
+  python3 scripts/telegram_image_scraper.py
+	```
 ### Object Detection
 - To perform object detection using YOLO, run the `run_yolo.py` script.
   ```bash
-  python3 run_yolo.py
+  python3 -m scripts.run_yolo
   ```
 
 ### Data Warehouse Operations
