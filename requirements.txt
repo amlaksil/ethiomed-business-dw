@@ -7,3 +7,10 @@ pycodestyle==2.11.1
 telethon==1.35.0
 dbt==1.0.0.37.20
 dbt-core==1.8.2
+dbt-postgres==1.8.1
+fastapi==0.111.0
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.30 
+uvicorn==0.30.1
+asyncpg==0.29.0
+databases==0.9.0
